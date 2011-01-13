@@ -30,7 +30,7 @@ enum {
 
 -(void)showNewPerson:(NSString *)text;
 -(void)displayImagePickerWithSource:(UIImagePickerControllerSourceType)src;
--(UIImage*)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize;
+//-(UIImage*)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize;
 
 @end
 
@@ -54,8 +54,6 @@ enum {
 	cards = [[NSMutableArray alloc] init];
 	
 	self.navigationItem.title = @"Card Scan";
-	self.tableView.rowHeight = 80.0;
-	
 	return self;
 }
 
@@ -81,44 +79,6 @@ enum {
 	[tesseractEngine release];
 	[cards release];
     [super dealloc];
-}
-
--(void)showNewPerson:(NSString *)text;
-{
-	CardParser *cardParser = [[CardParser alloc] initWithText:text];
-	
-	ABRecordRef ocrPerson = [cardParser parsedABRecordRef];
-	
-	// add the original biz card image to the address book record
-	ABPersonSetImageData(ocrPerson, (CFDataRef)UIImageJPEGRepresentation([[ImageCache sharedImageCache] imageForKey:currentImageKey], 1.0f), NULL);
-
-	NewPersonViewController *newPersonViewController = [[NewPersonViewController alloc] init];
-	newPersonViewController.displayedPerson = ocrPerson;
-	newPersonViewController.newPersonViewDelegate = self;
-	
-	UINavigationController *personNav = [[UINavigationController alloc] initWithRootViewController:newPersonViewController];
-
-	newPersonViewController.navigationController.toolbar.barStyle = UIBarStyleBlack;
-	
-	[DSBezelActivityView removeViewAnimated:YES];
-	
-	[self presentModalViewController:personNav animated:YES];
-
-	[newPersonViewController release];
-	[personNav release];
-	[cardParser release];
-}
-
-- (UIImage*)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize;
-{
-    float aspect = image.size.height / image.size.width;
-    float aspectHeight = newSize.width * aspect;
-    CGSize ratioSize = CGSizeMake(newSize.width, aspectHeight);
-    UIGraphicsBeginImageContext(ratioSize);
-    [image drawInRect:CGRectMake(0,0,ratioSize.width,ratioSize.height)];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return newImage;
 }
 
 - (IBAction)selectImage:(id)sender
@@ -177,28 +137,9 @@ enum {
 			// delete from the ImageCache (which will remove the image from the file system)
 			[[ImageCache sharedImageCache] deleteImageForKey:[deleteCard imageKey]];
 		}
-
+		
 		[deleteCard release];
 	}
-}
-
--(void) displayImagePickerWithSource:(UIImagePickerControllerSourceType)sourceType;
-{
-    if([UIImagePickerController isSourceTypeAvailable:sourceType]) {
-        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-		imagePicker.sourceType = sourceType;
-        imagePicker.delegate = self;
-		
-        // 3.0/3.1 allowsEditing compatibility
-		NSString *key = @"allowsEditing";
-		if ([imagePicker respondsToSelector:@selector(setAllowsImageEditing:)]) {
-			key = @"allowsImageEditing";
-		}
-		[imagePicker setValue:[NSNumber numberWithBool:YES] forKey:key];
-		
-        [self presentModalViewController:imagePicker animated:YES];
-        [imagePicker release];
-    }
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -224,13 +165,32 @@ enum {
 	[DSBezelActivityView newActivityViewForView:self.view withLabel:@"Processing Image..."];
 }
 
+-(void) displayImagePickerWithSource:(UIImagePickerControllerSourceType)sourceType;
+{
+    if([UIImagePickerController isSourceTypeAvailable:sourceType]) {
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+		imagePicker.sourceType = sourceType;
+        imagePicker.delegate = self;
+		
+        // 3.0/3.1 allowsEditing compatibility
+		NSString *key = @"allowsEditing";
+		if ([imagePicker respondsToSelector:@selector(setAllowsImageEditing:)]) {
+			key = @"allowsImageEditing";
+		}
+		[imagePicker setValue:[NSNumber numberWithBool:YES] forKey:key];
+		
+        [self presentModalViewController:imagePicker animated:YES];
+        [imagePicker release];
+    }
+}
+
 - (void)processImage:(UIImage *)image 
 {
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
-	// resize, so as to not choke tesseract:
-    // scaling up a low resolution image (eg. screenshots) seems to help the recognition.
-    // 1200 pixels is an arbitrary value, but seems to work well.
+	// resize, so as to not choke tesseract
+    // scaling up a low resolution image seems to help the recognition.
+    // 1200 pixels is an arbitrary value, but seems to work well
     CGFloat newWidth = 1200;
     CGSize newSize = CGSizeMake(newWidth, newWidth);
 	
@@ -242,6 +202,32 @@ enum {
     [self performSelectorOnMainThread:@selector(showNewPerson:) withObject:text waitUntilDone:NO];
     
     [pool release];
+}
+
+-(void)showNewPerson:(NSString *)text;
+{
+	CardParser *cardParser = [[CardParser alloc] initWithText:text];
+	
+	ABRecordRef ocrPerson = [cardParser parsedABRecordRef];
+	
+	// add the original biz card image to the address book record
+	ABPersonSetImageData(ocrPerson, (CFDataRef)UIImageJPEGRepresentation([[ImageCache sharedImageCache] imageForKey:currentImageKey], 1.0f), NULL);
+	
+	NewPersonViewController *newPersonViewController = [[NewPersonViewController alloc] init];
+	newPersonViewController.displayedPerson = ocrPerson;
+	newPersonViewController.newPersonViewDelegate = self;
+	
+	UINavigationController *personNav = [[UINavigationController alloc] initWithRootViewController:newPersonViewController];
+	
+	newPersonViewController.navigationController.toolbar.barStyle = UIBarStyleBlack;
+	
+	[DSBezelActivityView removeViewAnimated:YES];
+	
+	[self presentModalViewController:personNav animated:YES];
+	
+	[newPersonViewController release];
+	[personNav release];
+	[cardParser release];
 }
 
 - (void)newPersonViewController:(ABNewPersonViewController *)newPersonViewController didCompleteWithNewPerson:(ABRecordRef)person
@@ -316,6 +302,11 @@ enum {
 	
 	// push the detail view controller onto the top of the navigation controller's stack
 	[self.navigationController pushViewController:detailViewController animated:YES];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return 80.0;
 }
 
 @end

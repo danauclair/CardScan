@@ -85,8 +85,6 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
 	[super viewWillDisappear:animated];
-	
-	// save any changes here
 }
 
 - (IBAction)showContact:(id)sender
