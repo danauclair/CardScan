@@ -1,0 +1,63 @@
+Card Scan
+Copyright 2011 Dan Auclair | dan@danauclair.com
+
+MIT License, see LICENSE file for more details
+
+This project utilizes the open-source Tesseract library on iOS to perform OCR on business cards and use the data 
+to create new contacts in the iPhone address book. The Tesseract library is compliled as as static library using the 
+build script found at:
+http://robertcarlsen.net/2010/09/24/compiling-tesseract-v3-for-iphone-1299
+
+The Tesseract source code is available at:
+http://code.google.com/p/tesseract-ocr/
+
+To rebuild the Tesseract library run tesseract-ocr/build_fat.sh and the libraries will be in tesseract-ocr/outdir. 
+This is not required as compiled versions of the libraries have already been included.
+
+
+This project also contains source from:
+---------------------------------------
+
+UIImage resizing categories from Trevor Harmon
+http://vocaro.com/trevor/blog/2009/10/12/resize-a-uiimage-the-right-way/
+
+---------------------------------------
+
+RegexKitLite
+http://regexkit.sourceforge.net/RegexKitLite/
+
+RegexKitLite License
+Copyright © 2008-2010, John Engelhart
+All rights reserved.
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+	•	Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+	•	Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+	•	Neither the name of the Zang Industries nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+---------------------------------------
+
+DSActivityView
+http://www.dejal.com/developer/dsactivityview
+
+Dejal Open Source
+
+Created by David Sinclair on 2009-07-26.
+Copyright 2009-2010 Dejal Systems, LLC. All rights reserved.
+
+Redistribution and use in binary and source forms, with or without modification,
+are permitted for any project, commercial or otherwise, provided that the
+following conditions are met:
+  
+Redistributions in binary form must display the copyright notice in the About
+view, website, and/or documentation.
+  
+Redistributions of source code must retain the copyright notice, this list of
+conditions, and the following disclaimer.
+
+THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THIS SOFTWARE.

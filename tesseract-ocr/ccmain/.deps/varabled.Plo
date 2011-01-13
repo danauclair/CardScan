@@ -1,0 +1,680 @@
+varabled.lo varabled.o: varabled.cpp \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/stdlib.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/Availability.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/AvailabilityInternal.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/_types.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/_types.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/cdefs.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/machine/_types.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/i386/_types.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/wait.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/signal.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/appleapiopts.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/machine/signal.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/i386/signal.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/i386/_structs.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/_structs.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/machine/_structs.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/mach/i386/_structs.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/resource.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/machine/endian.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/i386/endian.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/_endian.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/libkern/_OSByteOrder.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/libkern/i386/_OSByteOrder.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/alloca.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/machine/types.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/i386/types.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/i386/_types.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/stdio.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/map \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/stl_tree.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/stl_algobase.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/i686-apple-darwin10/bits/c++config.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/i686-apple-darwin10/bits/os_defines.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/unistd.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/unistd.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/select.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/_select.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/i686-apple-darwin10/bits/cpu_defines.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/cstring \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/cstddef \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/lib/gcc/i686-apple-darwin10/4.2.1/include/stddef.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/string.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/climits \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/lib/gcc/i686-apple-darwin10/4.2.1/include/limits.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/lib/gcc/i686-apple-darwin10/4.2.1/include/syslimits.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/limits.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/machine/limits.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/i386/limits.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/i386/_limits.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/syslimits.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/cstdlib \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/iosfwd \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/i686-apple-darwin10/bits/c++locale.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/clocale \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/locale.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/_locale.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/cstdio \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/cstdarg \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/lib/gcc/i686-apple-darwin10/4.2.1/include/stdarg.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/i686-apple-darwin10/bits/c++io.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/i686-apple-darwin10/bits/gthr.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/i686-apple-darwin10/bits/gthr-default.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/pthread.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/pthread_impl.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sched.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/time.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/_structs.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/cctype \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/ctype.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/runetype.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/stringfwd.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/postypes.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/cwchar \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/ctime \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/wchar.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/_wctype.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/lib/gcc/i686-apple-darwin10/4.2.1/include/stdint.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/functexcept.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/exception_defines.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/stl_pair.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/cpp_type_traits.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/ext/type_traits.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/utility \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/stl_relops.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/stl_iterator_base_types.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/stl_iterator_base_funcs.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/concept_check.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/stl_iterator.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/debug/debug.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/allocator.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/i686-apple-darwin10/bits/c++allocator.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/ext/new_allocator.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/new \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/exception \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/stl_construct.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/stl_function.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/stl_map.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/stl_multimap.h \
+  ../config_auto.h varabled.h ../ccutil/elst.h ../ccutil/host.h \
+  ../ccutil/platform.h ../ccutil/serialis.h ../ccutil/memry.h \
+  ../ccutil/errcode.h ../ccutil/fileerr.h ../ccutil/lsterr.h \
+  ../viewer/scrollview.h ../ccutil/varable.h ../ccutil/clst.h \
+  ../ccutil/strngs.h tesseractclass.h ../wordrec/wordrec.h \
+  ../classify/classify.h ../classify/adaptive.h ../cutil/oldlist.h \
+  ../cutil/cutil.h ../cutil/general.h ../ccutil/host.h \
+  ../ccutil/tprintf.h ../ccutil/varable.h ../cutil/cutil_class.h \
+  ../ccutil/ccutil.h ../ccutil/ambigs.h ../ccutil/elst.h \
+  ../ccutil/tprintf.h ../ccutil/unichar.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/memory.h \
+  ../ccutil/unicharset.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/assert.h \
+  ../ccutil/unicharmap.h ../ccutil/genericvector.h ../ccutil/callback.h \
+  ../ccutil/helpers.h ../ccutil/tessdatamanager.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/semaphore.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/types.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/fcntl.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/semaphore.h \
+  ../ccutil/tessclas.h ../cutil/const.h ../ccutil/strngs.h \
+  ../ccutil/callback.h ../classify/intproto.h ../dict/matchdefs.h \
+  ../cutil/general.h ../ccutil/unichar.h ../classify/protos.h \
+  ../cutil/bitvec.h ../cutil/cutil.h ../ccutil/unichar.h \
+  ../ccutil/unicity_table.h ../ccutil/varable.h ../cutil/callcpp.h \
+  ../ccutil/varable.h ../ccutil/unichar.h ../ccutil/unicharset.h \
+  ../ccstruct/ccstruct.h ../cutil/cutil.h ../image/image.h \
+  ../classify/classify.h ../dict/dict.h ../ccutil/ambigs.h \
+  ../dict/choices.h ../cutil/oldlist.h ../ccutil/unicharset.h \
+  ../dict/choicearr.h ../cutil/tessarray.h ../dict/dawg.h \
+  ../ccutil/elst.h ../ccstruct/ratngs.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/assert.h \
+  ../ccutil/clst.h ../ccutil/genericvector.h ../ccutil/notdll.h \
+  ../ccutil/unichar.h ../ccutil/unicharset.h ../ccstruct/werd.h \
+  ../ccutil/varable.h ../ccutil/bits16.h ../ccutil/strngs.h \
+  ../ccstruct/blckerr.h ../ccutil/errcode.h ../ccstruct/stepblob.h \
+  ../ccstruct/coutln.h ../ccstruct/crakedge.h ../ccstruct/points.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/math.h \
+  /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/architecture/i386/math.h \
+  ../ccutil/elst.h ../ccstruct/ipoints.h ../ccstruct/mod128.h \
+  ../ccstruct/rect.h ../ccutil/ndminx.h ../ccutil/tprintf.h \
+  ../viewer/scrollview.h ../ccstruct/polyblob.h ../ccstruct/poutline.h \
+  ../ccstruct/polyvert.h ../ccutil/elst2.h ../ccstruct/normalis.h \
+  ../ccstruct/ocrrow.h ../ccstruct/quspline.h ../ccstruct/quadratc.h \
+  ../ccutil/serialis.h ../ccutil/memry.h ../ccutil/varable.h \
+  ../image/image.h ../dict/stopper.h ../dict/states.h ../dict/trie.h \
+  ../cutil/cutil.h ../classify/fxdefs.h ../ccutil/tessclas.h \
+  ../cutil/general.h ../classify/intmatcher.h ../classify/cutoffs.h \
+  ../ccstruct/ratngs.h ../classify/ocrfeatures.h ../cutil/funcdefs.h \
+  ../ccstruct/ratngs.h ../wordrec/matrix.h ../ccutil/unicharset.h \
+  ../wordrec/seam.h ../wordrec/split.h ../ccutil/tessclas.h \
+  ../cutil/oldlist.h ../cutil/tessarray.h ../ccutil/callback.h \
+  ../wordrec/associate.h ../dict/states.h ../ccstruct/blobs.h \
+  ../ccstruct/vecfuncs.h ../ccutil/tessclas.h ../wordrec/badwords.h \
+  ../ccutil/ocrclass.h control.h ../ccstruct/ocrblock.h ../image/img.h \
+  ../ccutil/memry.h ../ccstruct/pdblock.h ../ccstruct/polyblk.h \
+  ../ccstruct/hpddef.h ../ccstruct/ratngs.h ../ccstruct/statistc.h \
+  ../ccutil/host.h ../ccutil/ocrshell.h ../ccutil/ocrclass.h \
+  ../ccstruct/pageres.h ../ccstruct/ocrblock.h ../ccstruct/ratngs.h \
+  ../ccstruct/rejctmap.h charsample.h ../ccutil/memry.h \
+  ../ccutil/notdll.h docqual.h ../viewer/svmnode.h ../ccutil/mainblk.h \
+  ../ccutil/notdll.h
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/stdlib.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/Availability.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/AvailabilityInternal.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/_types.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/_types.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/cdefs.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/machine/_types.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/i386/_types.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/wait.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/signal.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/appleapiopts.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/machine/signal.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/i386/signal.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/i386/_structs.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/_structs.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/machine/_structs.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/mach/i386/_structs.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/resource.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/machine/endian.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/i386/endian.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/_endian.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/libkern/_OSByteOrder.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/libkern/i386/_OSByteOrder.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/alloca.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/machine/types.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/i386/types.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/i386/_types.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/stdio.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/map:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/stl_tree.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/stl_algobase.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/i686-apple-darwin10/bits/c++config.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/i686-apple-darwin10/bits/os_defines.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/unistd.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/unistd.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/select.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/_select.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/i686-apple-darwin10/bits/cpu_defines.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/cstring:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/cstddef:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/lib/gcc/i686-apple-darwin10/4.2.1/include/stddef.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/string.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/climits:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/lib/gcc/i686-apple-darwin10/4.2.1/include/limits.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/lib/gcc/i686-apple-darwin10/4.2.1/include/syslimits.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/limits.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/machine/limits.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/i386/limits.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/i386/_limits.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/syslimits.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/cstdlib:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/iosfwd:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/i686-apple-darwin10/bits/c++locale.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/clocale:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/locale.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/_locale.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/cstdio:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/cstdarg:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/lib/gcc/i686-apple-darwin10/4.2.1/include/stdarg.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/i686-apple-darwin10/bits/c++io.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/i686-apple-darwin10/bits/gthr.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/i686-apple-darwin10/bits/gthr-default.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/pthread.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/pthread_impl.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sched.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/time.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/_structs.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/cctype:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/ctype.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/runetype.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/stringfwd.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/postypes.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/cwchar:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/ctime:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/wchar.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/_wctype.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/lib/gcc/i686-apple-darwin10/4.2.1/include/stdint.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/functexcept.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/exception_defines.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/stl_pair.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/cpp_type_traits.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/ext/type_traits.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/utility:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/stl_relops.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/stl_iterator_base_types.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/stl_iterator_base_funcs.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/concept_check.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/stl_iterator.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/debug/debug.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/allocator.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/i686-apple-darwin10/bits/c++allocator.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/ext/new_allocator.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/new:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/exception:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/stl_construct.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/stl_function.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/stl_map.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/c++/4.2.1/bits/stl_multimap.h:
+
+../config_auto.h:
+
+varabled.h:
+
+../ccutil/elst.h:
+
+../ccutil/host.h:
+
+../ccutil/platform.h:
+
+../ccutil/serialis.h:
+
+../ccutil/memry.h:
+
+../ccutil/errcode.h:
+
+../ccutil/fileerr.h:
+
+../ccutil/lsterr.h:
+
+../viewer/scrollview.h:
+
+../ccutil/varable.h:
+
+../ccutil/clst.h:
+
+../ccutil/strngs.h:
+
+tesseractclass.h:
+
+../wordrec/wordrec.h:
+
+../classify/classify.h:
+
+../classify/adaptive.h:
+
+../cutil/oldlist.h:
+
+../cutil/cutil.h:
+
+../cutil/general.h:
+
+../ccutil/host.h:
+
+../ccutil/tprintf.h:
+
+../ccutil/varable.h:
+
+../cutil/cutil_class.h:
+
+../ccutil/ccutil.h:
+
+../ccutil/ambigs.h:
+
+../ccutil/elst.h:
+
+../ccutil/tprintf.h:
+
+../ccutil/unichar.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/memory.h:
+
+../ccutil/unicharset.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/assert.h:
+
+../ccutil/unicharmap.h:
+
+../ccutil/genericvector.h:
+
+../ccutil/callback.h:
+
+../ccutil/helpers.h:
+
+../ccutil/tessdatamanager.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/semaphore.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/types.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/fcntl.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/semaphore.h:
+
+../ccutil/tessclas.h:
+
+../cutil/const.h:
+
+../ccutil/strngs.h:
+
+../ccutil/callback.h:
+
+../classify/intproto.h:
+
+../dict/matchdefs.h:
+
+../cutil/general.h:
+
+../ccutil/unichar.h:
+
+../classify/protos.h:
+
+../cutil/bitvec.h:
+
+../cutil/cutil.h:
+
+../ccutil/unichar.h:
+
+../ccutil/unicity_table.h:
+
+../ccutil/varable.h:
+
+../cutil/callcpp.h:
+
+../ccutil/varable.h:
+
+../ccutil/unichar.h:
+
+../ccutil/unicharset.h:
+
+../ccstruct/ccstruct.h:
+
+../cutil/cutil.h:
+
+../image/image.h:
+
+../classify/classify.h:
+
+../dict/dict.h:
+
+../ccutil/ambigs.h:
+
+../dict/choices.h:
+
+../cutil/oldlist.h:
+
+../ccutil/unicharset.h:
+
+../dict/choicearr.h:
+
+../cutil/tessarray.h:
+
+../dict/dawg.h:
+
+../ccutil/elst.h:
+
+../ccstruct/ratngs.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/assert.h:
+
+../ccutil/clst.h:
+
+../ccutil/genericvector.h:
+
+../ccutil/notdll.h:
+
+../ccutil/unichar.h:
+
+../ccutil/unicharset.h:
+
+../ccstruct/werd.h:
+
+../ccutil/varable.h:
+
+../ccutil/bits16.h:
+
+../ccutil/strngs.h:
+
+../ccstruct/blckerr.h:
+
+../ccutil/errcode.h:
+
+../ccstruct/stepblob.h:
+
+../ccstruct/coutln.h:
+
+../ccstruct/crakedge.h:
+
+../ccstruct/points.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/math.h:
+
+/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/architecture/i386/math.h:
+
+../ccutil/elst.h:
+
+../ccstruct/ipoints.h:
+
+../ccstruct/mod128.h:
+
+../ccstruct/rect.h:
+
+../ccutil/ndminx.h:
+
+../ccutil/tprintf.h:
+
+../viewer/scrollview.h:
+
+../ccstruct/polyblob.h:
+
+../ccstruct/poutline.h:
+
+../ccstruct/polyvert.h:
+
+../ccutil/elst2.h:
+
+../ccstruct/normalis.h:
+
+../ccstruct/ocrrow.h:
+
+../ccstruct/quspline.h:
+
+../ccstruct/quadratc.h:
+
+../ccutil/serialis.h:
+
+../ccutil/memry.h:
+
+../ccutil/varable.h:
+
+../image/image.h:
+
+../dict/stopper.h:
+
+../dict/states.h:
+
+../dict/trie.h:
+
+../cutil/cutil.h:
+
+../classify/fxdefs.h:
+
+../ccutil/tessclas.h:
+
+../cutil/general.h:
+
+../classify/intmatcher.h:
+
+../classify/cutoffs.h:
+
+../ccstruct/ratngs.h:
+
+../classify/ocrfeatures.h:
+
+../cutil/funcdefs.h:
+
+../ccstruct/ratngs.h:
+
+../wordrec/matrix.h:
+
+../ccutil/unicharset.h:
+
+../wordrec/seam.h:
+
+../wordrec/split.h:
+
+../ccutil/tessclas.h:
+
+../cutil/oldlist.h:
+
+../cutil/tessarray.h:
+
+../ccutil/callback.h:
+
+../wordrec/associate.h:
+
+../dict/states.h:
+
+../ccstruct/blobs.h:
+
+../ccstruct/vecfuncs.h:
+
+../ccutil/tessclas.h:
+
+../wordrec/badwords.h:
+
+../ccutil/ocrclass.h:
+
+control.h:
+
+../ccstruct/ocrblock.h:
+
+../image/img.h:
+
+../ccutil/memry.h:
+
+../ccstruct/pdblock.h:
+
+../ccstruct/polyblk.h:
+
+../ccstruct/hpddef.h:
+
+../ccstruct/ratngs.h:
+
+../ccstruct/statistc.h:
+
+../ccutil/host.h:
+
+../ccutil/ocrshell.h:
+
+../ccutil/ocrclass.h:
+
+../ccstruct/pageres.h:
+
+../ccstruct/ocrblock.h:
+
+../ccstruct/ratngs.h:
+
+../ccstruct/rejctmap.h:
+
+charsample.h:
+
+../ccutil/memry.h:
+
+../ccutil/notdll.h:
+
+docqual.h:
+
+../viewer/svmnode.h:
+
+../ccutil/mainblk.h:
+
+../ccutil/notdll.h:
