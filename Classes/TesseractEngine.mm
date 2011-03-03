@@ -10,9 +10,8 @@
 #import "baseapi.h"
 
 @interface TesseractEngine()
-
+// interface for "private" methods
 - (NSString *)documentsDirectory;
-
 @end
 
 @implementation TesseractEngine
@@ -23,16 +22,17 @@
 {
 	self = [super init];
 	
-	// Set up the tessdata path. This is included in the application bundle
-    // but is copied to the Documents directory on the first run.
+	// if tessdata does not exist in the documents directory for the app, copy from the application bundle
     NSString *dataPath = [[self documentsDirectory] stringByAppendingPathComponent:@"tessdata"];
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    // If the expected store doesn't exist, copy the default store.
+	
     if (![fileManager fileExistsAtPath:dataPath]) {
-        // get the path to the app bundle (with the tessdata dir)
+        // get the path to the app bundle
         NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
         NSString *tessdataPath = [bundlePath stringByAppendingPathComponent:@"tessdata"];
+		
         if (tessdataPath) {
+			// perform the copy
             [fileManager copyItemAtPath:tessdataPath toPath:dataPath error:NULL];
         }
     }
@@ -40,7 +40,7 @@
     NSString *dataPathWithSlash = [[self documentsDirectory] stringByAppendingString:@"/"];
     setenv("TESSDATA_PREFIX", [dataPathWithSlash UTF8String], 1);
     
-    // init the tesseract engine.
+    // init the tesseract engine
     tess = new TessBaseAPI();
     tess->Init([dataPath cStringUsingEncoding:NSUTF8StringEncoding],    // Path to tessdata-no ending /.
                "eng");													// ISO 639-3 string or NULL.
@@ -50,7 +50,8 @@
 
 - (void)dealloc
 {
-	tess->End(); // shutdown tesseract
+	// shutdown tesseract
+	tess->End();
 	
 	[super dealloc];
 }
@@ -78,6 +79,7 @@
                                      0, 0,
                                      imageSize.width, imageSize.height);
     
+	// return as objective-c string
     return [NSString stringWithUTF8String:text];
 }
 

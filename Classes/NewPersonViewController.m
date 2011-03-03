@@ -15,8 +15,8 @@
     [super viewDidLoad];
 	
 	// had to subclass this just to set the navigation bar to black
-	// for some reason would not work when setting directly 
-	// on the parent navigation controller from calling code
+	// does not work when setting directly on the parent navigation 
+	// controller from calling code
 	self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
 

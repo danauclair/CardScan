@@ -43,9 +43,9 @@
 {
 	[super init];
 	
+	// decode properties with their names as keys
 	self.recordId = [aDecoder decodeIntForKey:@"recordId"];
 	self.imageKey = [aDecoder decodeObjectForKey:@"imageKey"];
-	
 	thumbnailData = [[aDecoder decodeObjectForKey:@"thumbnailData"] retain];
 	
 	return self;
@@ -53,6 +53,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
+	// encode properties with property name keys
 	[aCoder encodeInt:recordId forKey:@"recordId"];
 	[aCoder	encodeObject:imageKey forKey:@"imageKey"];
 	[aCoder encodeObject:thumbnailData forKey:@"thumbnailData"];
@@ -64,6 +65,7 @@
 		return nil;
 	}
 	
+	// lazy load thumbnail UIImage from thumbnail NSData
 	if (!thumbnail) {
 		thumbnail = [[UIImage imageWithData:thumbnailData] retain];
 	}
@@ -88,6 +90,7 @@
 	thumbnail = UIGraphicsGetImageFromCurrentImageContext();
 	[thumbnail retain];
 	
+	// end image context
 	UIGraphicsEndImageContext();
 	
 	// set the thumbnail data object from the jpeg data of the image

@@ -26,7 +26,6 @@
 
 // "private" methods
 @interface CardParser()
-
 - (NSArray *)tokenizeText:(NSString *)text;
 - (NSString *)returnMatchOrNilForRegex:(NSString *)regEx withString:(NSString *)text;
 - (BOOL)isCommonName:(NSString *)text;
@@ -38,7 +37,6 @@
 - (NSString *)streetAddressToken;
 - (NSString *)cityStateZipAddressToken;
 - (NSArray *)phoneNumbers;
-
 @end
 
 @implementation CardParser
@@ -71,7 +69,7 @@
 		}
 	}
 	
-	// open the database
+	// open the SQLite database
 	const char *cPath = [path cStringUsingEncoding:NSUTF8StringEncoding];
 	
 	NSLog(@"Opening names database");
@@ -87,152 +85,33 @@
 {
 	[tokens release];
 	
+	// finalize & close SQLite database
 	sqlite3_finalize(statement);
 	sqlite3_close(database);
 	
 	[super dealloc];
 }
 
-- (NSString *)nameToken
+// break up a string of text by newlines & single character separators
+- (NSArray *)tokenizeText:(NSString *)text
 {
-	NSString *result = nil;
+	// split into array of lines
+	NSArray *lines = [text componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+	NSMutableArray *components = [NSMutableArray array]; // autoreleased
 	
-	// loop through remaining unassigned card tokens
-	for (NSString *token in tokens) {
-		// break the card token up into words by whitespace
-		for (NSString *word in [token componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]) {
-			// check SQLite database of common names to see if this is the name token
-			if ([self isCommonName:word]) {
-				result = token;
-				break;
+	// tokenize each line using any single character surrounded by spaces, i.e. | 
+	for (NSString *line in lines) {
+		for (NSString *token in [line componentsSeparatedByRegex:@" . "]) {
+			// only add non-trivial length tokens, strings under 3 characters seem to be OCR character garbage
+			if ([token length] > 2) {
+				[components addObject:token];
 			}
 		}
 	}
 	
-	// if a name token was found, remove it from the array so we don't check it again
-	if (result) {
-		[tokens removeObject:result];
-	}
-	
-	return result;
+	return components;
 }
 
-- (NSString *)jobTitleToken
-{
-	NSString *result = nil;
-	
-	for (NSString *token in tokens) {
-		for (NSString *word in [token componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]) {
-			if ([self isCommonJobTitleWord:word]) {
-				result = token;
-				break;
-			}
-		}
-	}
-	
-	if (result) {
-		[tokens removeObject: result];
-	}
-	
-	return result;
-}
-
-- (NSString *)emailToken
-{
-	NSString *emailRegex = @"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
-	NSString *result = nil;
-	
-	// loop through remaining unassigned card tokens
-	for (NSString *token in tokens) {
-		result = [self returnMatchOrNilForRegex:emailRegex withString:token];
-		if (result) {
-			break;
-		}
-	}
-	
-	if (result) {
-		[tokens removeObject:result];
-	}
-	
-	return result;
-}
-
-- (NSString *)websiteToken
-{
-	NSString *websiteRegex = @"[A-Za-z0-9]+\\.[A-Za-z]{2,4}";
-	NSString *result = nil;
-	
-	for (NSString *token in tokens) {
-		result = [self returnMatchOrNilForRegex:websiteRegex withString:token];
-		
-		if (result) {
-			break;
-		}
-	}
-	
-	if (result) {
-		[tokens removeObject:result];
-	}
-	
-	return result;
-}
-
-- (NSArray *)phoneNumbers
-{
-	NSString *phoneRegex  = @"\\(?[0-9]{3}\\)?[-. ]?[0-9]{3}[-. ]?[0-9]{4}";
-	NSMutableArray *result = [NSMutableArray array];
-	NSMutableArray *phoneTokens = [NSMutableArray array];
-	
-	for (NSString *token in tokens) {
-		NSString *phoneNumber = [self returnMatchOrNilForRegex:phoneRegex withString:token];
-		if (phoneNumber) {
-			[phoneTokens addObject:token];
-			[result addObject:phoneNumber];
-		}
-	}
-	
-	[tokens removeObjectsInArray:phoneTokens];
-	
-	return result;
-}
-
-- (NSString *)streetAddressToken
-{
-	NSString *addressRegex = @"[0-9]{1,6} [A-Za-z]+";
-	NSString *result = nil;
-	
-	for( NSString *token in tokens) {
-		if ([self returnMatchOrNilForRegex:addressRegex withString:token]) {
-			result = token;
-			break;
-		}
-	}
-	
-	if (result) {
-		[tokens removeObject:result];
-	}
-	
-	return result;
-}
-
-- (NSString *)cityStateZipAddressToken
-{
-	NSString *addressRegex = @"[A-Za-z]+, [A-Za-z]+ [0-9]{5}";
-	NSString *result = nil;
-	
-	for (NSString *token in tokens) {
-		if ([self returnMatchOrNilForRegex:addressRegex withString:token]) {
-			result = token;
-			break;
-		}
-	}
-	
-	if (result) {
-		[tokens removeObject:result];
-	}
-	
-	return result;
-}
 
 - (ABRecordRef)parsedABRecordRef
 {
@@ -429,25 +308,66 @@
 	return person;
 }
 
-- (NSArray *)tokenizeText:(NSString *)text
+- (NSString *)nameToken
 {
-	// split into array of lines
-	NSArray *lines = [text componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
-	NSMutableArray *components = [NSMutableArray array]; // autoreleased
+	NSString *result = nil;
 	
-	// tokenize each line using any single character surrounded by spaces
-	for (NSString *line in lines) {
-		for (NSString *token in [line componentsSeparatedByRegex:@" . "]) {
-			// add non-trivial lenght tokens, strings under 3 characters seem to be garbage
-			if ([token length] > 2) {
-				[components addObject:token];
+	for (NSString *token in tokens) {
+		for (NSString *word in [token componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]) {
+			if ([self isCommonName:word]) {
+				result = token;
+				break;
 			}
 		}
 	}
 	
-	return components;
+	if (result) {
+		[tokens removeObject:result];
+	}
+	
+	return result;
 }
 
+- (NSString *)jobTitleToken
+{
+	NSString *result = nil;
+	
+	for (NSString *token in tokens) {
+		for (NSString *word in [token componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]) {
+			if ([self isCommonJobTitleWord:word]) {
+				result = token;
+				break;
+			}
+		}
+	}
+	
+	if (result) {
+		[tokens removeObject: result];
+	}
+	
+	return result;
+}
+
+- (NSString *)emailToken
+{
+	NSString *emailRegex = @"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+	NSString *result = nil;
+	
+	for (NSString *token in tokens) {
+		result = [self returnMatchOrNilForRegex:emailRegex withString:token];
+		if (result) {
+			break;
+		}
+	}
+	
+	if (result) {
+		[tokens removeObject:result];
+	}
+	
+	return result;
+}
+
+// uses RegexKitLite to check for a match, returns either the match or nil
 - (NSString *)returnMatchOrNilForRegex:(NSString *)regEx withString:(NSString *)text
 {
 	NSString *match = [text stringByMatching:regEx];
@@ -458,6 +378,84 @@
 		return match;
 	}
 }
+
+- (NSString *)websiteToken
+{
+	NSString *websiteRegex = @"[A-Za-z0-9]+\\.[A-Za-z]{2,4}";
+	NSString *result = nil;
+	
+	for (NSString *token in tokens) {
+		result = [self returnMatchOrNilForRegex:websiteRegex withString:token];
+		
+		if (result) {
+			break;
+		}
+	}
+	
+	if (result) {
+		[tokens removeObject:result];
+	}
+	
+	return result;
+}
+
+- (NSArray *)phoneNumbers
+{
+	NSString *phoneRegex  = @"\\(?[0-9]{3}\\)?[-. ]?[0-9]{3}[-. ]?[0-9]{4}";
+	NSMutableArray *result = [NSMutableArray array];
+	NSMutableArray *phoneTokens = [NSMutableArray array];
+	
+	for (NSString *token in tokens) {
+		NSString *phoneNumber = [self returnMatchOrNilForRegex:phoneRegex withString:token];
+		if (phoneNumber) {
+			[phoneTokens addObject:token];
+			[result addObject:phoneNumber];
+		}
+	}
+	
+	[tokens removeObjectsInArray:phoneTokens];
+	
+	return result;
+}
+
+- (NSString *)streetAddressToken
+{
+	NSString *addressRegex = @"[0-9]{1,6} [A-Za-z]+";
+	NSString *result = nil;
+	
+	for( NSString *token in tokens) {
+		if ([self returnMatchOrNilForRegex:addressRegex withString:token]) {
+			result = token;
+			break;
+		}
+	}
+	
+	if (result) {
+		[tokens removeObject:result];
+	}
+	
+	return result;
+}
+
+- (NSString *)cityStateZipAddressToken
+{
+	NSString *addressRegex = @"[A-Za-z]+, [A-Za-z]+ [0-9]{5}";
+	NSString *result = nil;
+	
+	for (NSString *token in tokens) {
+		if ([self returnMatchOrNilForRegex:addressRegex withString:token]) {
+			result = token;
+			break;
+		}
+	}
+	
+	if (result) {
+		[tokens removeObject:result];
+	}
+	
+	return result;
+}
+
 
 - (BOOL)isCommonName:(NSString *)text
 {
@@ -491,7 +489,6 @@
 	// this is obviously far from perfect, but a set of common words that are usually found in job titles
 	// this would need to be fine tuned a lot -- possibly put into a SQLite table
 	// don't want to get false positives with company name or address, etc
-	//
 	NSSet *commonJobTitleWords = [NSSet setWithObjects:@"account",@"accountant",@"accounts",@"director",@"coordinator",@"technician",
 								  @"actuary",@"analyst",@"assistant",@"clerk",@"secretary",@"receptionist",@"services",@"administrator",
 								  @"administrative",@"supervisor",@"attorney",@"trainer",@"auditor",@"librarian",@"associate",@"president",
@@ -502,6 +499,7 @@
 								  @"payroll",@"intern",@"recruiter",@"dietitian",@"scientist",@"officer",@"systems",@"registrar",
 								  @"developer",@"chairman",@"CEO",@"CTO",@"CFO",@"IT",@"operations",@"agent",nil];
 	
+	// check the NSSet for the word as lowercase
 	if ([commonJobTitleWords containsObject:[word lowercaseString]]) {
 		return YES;
 	}

@@ -25,13 +25,10 @@ enum {
 	ActionSheetConfirmDelete = 1
 }; typedef NSUInteger ActionSheetType;
 
-// "private" methods
+// interface for "private" methods
 @interface CardScanViewController()
-
 -(void)showNewPerson:(NSString *)text;
 -(void)displayImagePickerWithSource:(UIImagePickerControllerSourceType)src;
-//-(UIImage*)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize;
-
 @end
 
 @implementation CardScanViewController
@@ -40,20 +37,26 @@ enum {
 
 - (id)init
 {
-	// call the superclass's designated initializer
+	// init the super UITableView with grouped style
 	[super initWithStyle:UITableViewStyleGrouped];
 	
+	// make the leftBarButtonItem the "edit" button for the UITableView
 	self.navigationItem.leftBarButtonItem = self.editButtonItem;
 	
+	// create a new camera icon button for the rightBarButtonItem, and hook it up to the selectImage: selector
 	UIBarButtonItem *cameraBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(selectImage:)];
 	self.navigationItem.rightBarButtonItem = cameraBarButtonItem;
 	[cameraBarButtonItem release];
 	
 	// initialize tesseract engine
 	tesseractEngine = [[TesseractEngine alloc] init];
+	
+	// initialize an empty cards array
 	cards = [[NSMutableArray alloc] init];
 	
+	// set the main view title, which shows up in the UINavgiationController
 	self.navigationItem.title = @"Card Scan";
+	
 	return self;
 }
 
@@ -63,16 +66,11 @@ enum {
 }
 
 - (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc. that aren't in use.
 }
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)dealloc {
@@ -91,6 +89,8 @@ enum {
 												   destructiveButtonTitle:nil
 														otherButtonTitles:@"Camera",@"Photo Library", nil];
 		actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+		
+		// set the tag of the action sheet to ActionSheetSelectImage to distinguish between SelectImage/ConfirmDelete action sheets
 		actionSheet.tag = ActionSheetSelectImage;
 		[actionSheet showInView:self.view];
         [actionSheet release];
@@ -103,6 +103,7 @@ enum {
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex;
 {
 	if (actionSheet.tag == ActionSheetSelectImage) {
+		// action sheet for "Select Image Source"
 		switch (buttonIndex) {
 			case 0: // camera
 				[self displayImagePickerWithSource:UIImagePickerControllerSourceTypeCamera];
@@ -115,6 +116,7 @@ enum {
 				break;
 		}
 	} else if (actionSheet.tag == ActionSheetConfirmDelete) {
+		// action sheet for "Also Delete Address Book Contact?"
 		if (buttonIndex < 2) {
 			if (buttonIndex == 0) {
 				// need to also delete the cooresponding address book record
@@ -122,6 +124,7 @@ enum {
 				ABRecordRef person = ABAddressBookGetPersonWithRecordID(book, deleteCard.recordId);
 				
 				if (person != NULL) {
+					// remove the ABRecordRef from the address book and save it
 					ABAddressBookRemoveRecord(book, person, NULL);
 					ABAddressBookSave(book, NULL);
 				}
@@ -138,12 +141,37 @@ enum {
 			[[ImageCache sharedImageCache] deleteImageForKey:[deleteCard imageKey]];
 		}
 		
+		// no longer need this reference
 		[deleteCard release];
+		deleteCard = nil;
 	}
+}
+
+-(void) displayImagePickerWithSource:(UIImagePickerControllerSourceType)sourceType;
+{
+	// sanity check to make sure we have the sourceType for the current device
+    if([UIImagePickerController isSourceTypeAvailable:sourceType]) {
+		// create a new UIImagePickerController with appropriate sourceType (i.e. Camera or Photo Library)
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+		imagePicker.sourceType = sourceType;
+        imagePicker.delegate = self;
+		
+        // 3.0/3.1 allowsEditing compatibility for API change
+		NSString *key = @"allowsEditing";
+		if ([imagePicker respondsToSelector:@selector(setAllowsImageEditing:)]) {
+			key = @"allowsImageEditing";
+		}
+		[imagePicker setValue:[NSNumber numberWithBool:YES] forKey:key];
+		
+		// present the UIImagePickerController as a modal view
+        [self presentModalViewController:imagePicker animated:YES];
+        [imagePicker release];
+    }
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+	// dismiss the modal image picker view
     [self dismissModalViewControllerAnimated:YES];
 	
 	// create a unique ID to use as the image key
@@ -162,43 +190,25 @@ enum {
 	[NSThread detachNewThreadSelector:@selector(processImage:) toTarget:self withObject:croppedImage];
 	[croppedImage release];
 	
+	// throw up a "Processing Image..." activity bezel while we wait
 	[DSBezelActivityView newActivityViewForView:self.view withLabel:@"Processing Image..."];
-}
-
--(void) displayImagePickerWithSource:(UIImagePickerControllerSourceType)sourceType;
-{
-    if([UIImagePickerController isSourceTypeAvailable:sourceType]) {
-        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-		imagePicker.sourceType = sourceType;
-        imagePicker.delegate = self;
-		
-        // 3.0/3.1 allowsEditing compatibility
-		NSString *key = @"allowsEditing";
-		if ([imagePicker respondsToSelector:@selector(setAllowsImageEditing:)]) {
-			key = @"allowsImageEditing";
-		}
-		[imagePicker setValue:[NSNumber numberWithBool:YES] forKey:key];
-		
-        [self presentModalViewController:imagePicker animated:YES];
-        [imagePicker release];
-    }
 }
 
 - (void)processImage:(UIImage *)image 
 {
+	// this is happening on a separate thread, create a new NSAutoreleasePool
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
-	// resize, so as to not choke tesseract
-    // scaling up a low resolution image seems to help the recognition.
-    // 1200 pixels is an arbitrary value, but seems to work well
+	// resize the selected image to 1200 x 1200 pixel which helps with tesseract recognition
     CGFloat newWidth = 1200;
     CGSize newSize = CGSizeMake(newWidth, newWidth);
-	
     image = [image resizedImage:newSize interpolationQuality:kCGInterpolationHigh];
     
+	// calling this on TesseractEngine will take a long time...
     NSString *text = [tesseractEngine readAndProcessImage:image];
 	NSLog(@"Original OCR Text:\n%@", text);
     
+	// call the showNewPerson: selector with the output text back on the main thread
     [self performSelectorOnMainThread:@selector(showNewPerson:) withObject:text waitUntilDone:NO];
     
     [pool release];
